@@ -1,0 +1,14 @@
+default: &default
+  slack_url: <%= ENV.fetch('SLACK_URL', 'test') %>
+  slack_channel: <%= ENV.fetch('SLACK_CHANNEL', 'test') %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  slack_url: https://hooks.slack.com/services/XXX/YYY/ZZZ'
+  slack_channel: test_channel
+
+production:
+  <<: *default

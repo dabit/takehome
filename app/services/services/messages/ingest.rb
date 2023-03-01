@@ -8,7 +8,9 @@ module Services
       end
 
       class SpamNotification
-        def call(message); end
+        def call(message)
+          SpamReport.with(email: message['Email']).deliver('')
+        end
       end
 
       class HardBounce

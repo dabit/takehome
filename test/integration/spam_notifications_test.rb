@@ -4,6 +4,8 @@ require 'test_helper'
 
 class SpamNotificationsTest < ActionDispatch::IntegrationTest
   test 'receives a spam report' do
+    stub_request(:post, "https://hooks.slack.com/services/XXX/YYY/ZZZ'")
+
     post messages_path, params: {
       body: {
         RecordType: 'Bounce',
@@ -18,6 +20,11 @@ class SpamNotificationsTest < ActionDispatch::IntegrationTest
         BouncedAt: '2023-02-27T21:41:30Z'
       }
     }
+
+    assert_requested :post,
+                     Rails.configuration.takehome.slack_url,
+                     times: 1,
+                     body: '{"text":"Spam report received for zaphod@example.com","username":"SpamNot","channel":"test_channel"}'
   end
 
   test 'receives other kinds of reports' do
@@ -35,5 +42,8 @@ class SpamNotificationsTest < ActionDispatch::IntegrationTest
         BouncedAt: '2019-11-05T16:33:54.9070259Z'
       }
     }
+
+    assert_not_requested :post,
+                         Rails.configuration.takehome.slack_url
   end
 end

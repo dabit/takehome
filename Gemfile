@@ -50,3 +50,9 @@ group :development do
   # gem "spring"
   gem 'rubocop-rails', '~> 2.18'
 end
+
+group :test do
+  gem 'webmock', '~> 3.18'
+end
+
+gem 'noticed', '~> 1.6'
