@@ -20,4 +20,4 @@ Style/Documentation:
 Layout/LineLength:
   Exclude:
     - 'config/routes.rb'
-  Max: 130
+  Max: 150
