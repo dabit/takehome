@@ -10,7 +10,7 @@ The only thing this app needs to run is two environment variables that define ho
 
 ```
   SLACK_URL=
-  SLACK_CHANNEL
+  SLACK_CHANNEL=
 ```
 
 ## Tests
