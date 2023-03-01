@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app was created as a small takehome test for a job application as described here:
 
-Things you may want to cover:
+https://honeybadger.notion.site/honeybadger/Take-home-project-for-Software-Developer-position-2023-fee9be3cd8454e1fb61e53f0172ff2e8
 
-* Ruby version
+## Setup
 
-* System dependencies
+The only thing this app needs to run is two environment variables that define how to communicate with Slack's API.
 
-* Configuration
+```
+  SLACK_URL=
+  SLACK_CHANNEL
+```
 
-* Database creation
+## Tests
 
-* Database initialization
+It has a standard rails test suite, all you have to do to run it is:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+bundle exec rails test
+```
