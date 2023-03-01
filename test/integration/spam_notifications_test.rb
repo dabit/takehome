@@ -4,7 +4,7 @@ require 'test_helper'
 
 class SpamNotificationsTest < ActionDispatch::IntegrationTest
   test 'receives a spam report' do
-    stub_request(:post, "https://hooks.slack.com/services/XXX/YYY/ZZZ'")
+    stub_request(:post, Rails.configuration.takehome.slack_url)
 
     post messages_path, params: {
       body: {
