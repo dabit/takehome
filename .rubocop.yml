@@ -1,0 +1,23 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  NewCops: enable
+  Include:
+    - 'Gemfile'
+    - 'app/controllers/**/*.rb'
+    - 'app/models/**/*.rb'
+    - 'app/services/**/*.rb'
+    - 'app/mailers/**/*.rb'
+    - 'app/notifications/**/*.rb'
+    - 'test/**/*.rb'
+    - 'config/initializers/**/*.rb'
+    - 'config/routes.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Layout/LineLength:
+  Exclude:
+    - 'config/routes.rb'
+  Max: 130
